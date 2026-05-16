@@ -6,7 +6,7 @@ API_URL = (
     "sshleifer/distilbart-cnn-12-6"
 )
 
-HEADERS = { "Authorization": f"Bearer {os.getenv('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')}" }
+HEADERS = { "Authorization": f"Bearer {os.getenv('HF_TOKEN')}" }
 
 def split_text(text, chunk_size=800):
 
