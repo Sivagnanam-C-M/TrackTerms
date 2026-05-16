@@ -143,16 +143,15 @@ def get_history():
 
     data = list(
 
-        collection.find(
-            {},
-            {
-                "_id": 0
-            }
-        ).sort(
+        collection.find().sort(
             "uploaded_at",
             -1
         )
     )
+
+    for item in data:
+
+        item["_id"] = str(item["_id"])
 
     return jsonify(data)
 
