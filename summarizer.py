@@ -15,36 +15,37 @@ def summarize_text(text):
         text = text[:4000]
 
         prompt = f"""
-You are an AI assistant that explains Terms and Conditions
-in SIMPLE everyday language.
+        You are a Terms and Conditions simplifier.
 
-Your task:
-- Rewrite complex legal language into simple English
-- Convert passive/legal tone into active human-friendly tone
-- Explain what the company actually means
-- Make the summary easy for normal users to understand
-- Avoid copying original legal sentences
-- Keep it concise and attractive
+        Your job is to COMPLETELY REWRITE legal text into
+        simple modern English.
 
-Format:
+        STRICT RULES:
+        - ONLY return bullet points
+        - DO NOT add explanations
+        - DO NOT add extra paragraphs
+        - DO NOT say "Let's break this down"
+        - DO NOT repeat headings from the document
+        - DO NOT copy legal wording
+        - Rewrite everything naturally
+        - Convert passive/legal voice into active human voice
+        - Sound like you are explaining to a normal app user
+        - Keep it short and clean
+        - Maximum 120 words
 
-## Quick Summary
-- short bullet point
-- short bullet point
-- short bullet point
+        OUTPUT FORMAT:
 
-## Important Note
-- mention major privacy, payment, or security concern
+        ## Quick Summary
+        • point
+        • point
+        • point
 
-IMPORTANT:
-Do NOT use difficult legal wording.
-Do NOT sound robotic.
-Do NOT copy the original sentences directly.
+        ## Important Note
+        • one important warning or privacy concern
 
-Terms and Conditions:
-{text}
-"""
-
+        Terms and Conditions:
+        {text}
+        """
         response = client.chat.completions.create(
 
             model="llama-3.1-8b-instant",
@@ -63,7 +64,7 @@ Terms and Conditions:
                 }
             ],
 
-            temperature=0.5,
+            temperature=0.2,
             max_tokens=400
         )
 
