@@ -43,6 +43,13 @@ def summarize_text(text):
             json=payload
         )
 
+        if response.status_code != 200:
+
+            print("HF API ERROR:")
+            print(response.text)
+
+            continue
+
         result = response.json()
 
         if (
