@@ -1,11 +1,7 @@
 import requests
 import os
 
-API_URL = (
-    "https://api-inference.huggingface.co/models/"
-    "sshleifer/distilbart-cnn-12-6"
-)
-
+API_URL = "https://router.huggingface.co/hf-inference/models/sshleifer/distilbart-cnn-12-6"
 HEADERS = {
     "Authorization": f"Bearer {os.getenv('HF_TOKEN')}"
 }
