@@ -22,6 +22,7 @@ from summarizer import summarize_text
 from database import collection
 from tracker import detect_changes
 from datetime import datetime
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
@@ -154,6 +155,16 @@ def get_history():
     )
 
     return jsonify(data)
+@app.route("/delete/<id>", methods=["DELETE"])
+def delete_history(id):
+
+    collection.delete_one({
+        "_id": ObjectId(id)
+    })
+
+    return jsonify({
+        "message": "Deleted successfully"
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
