@@ -1,6 +1,9 @@
 from pymongo import MongoClient
+import os
 
-client = MongoClient("mongodb+srv://sivagnanamcm2006:sivagnanam@trackterms.ohrscao.mongodb.net/?appName=TrackTerms/")
+client = MongoClient(
+    os.getenv("MONGO_URI")
+)
 
 db = client["trackterms"]
 
