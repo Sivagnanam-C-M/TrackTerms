@@ -15,28 +15,31 @@ def summarize_text(text):
         text = text[:4000]
 
         prompt = f"""
-You are an AI Terms & Conditions summarizer.
+You are an AI assistant that explains Terms and Conditions
+in SIMPLE everyday language.
 
-Generate a concise, attractive, and easy-to-read summary.
-
-Rules:
-- Use short bullet points
-- Keep the summary user-friendly
-- Avoid long paragraphs
-- Highlight important privacy, payment, subscription,
-  account, or security concerns
-- Mention risks if any
-- Keep the output under 150 words
+Your task:
+- Rewrite complex legal language into simple English
+- Convert passive/legal tone into active human-friendly tone
+- Explain what the company actually means
+- Make the summary easy for normal users to understand
+- Avoid copying original legal sentences
+- Keep it concise and attractive
 
 Format:
 
 ## Quick Summary
-- point
-- point
-- point
+- short bullet point
+- short bullet point
+- short bullet point
 
 ## Important Note
-short warning or concern if applicable
+- mention major privacy, payment, or security concern
+
+IMPORTANT:
+Do NOT use difficult legal wording.
+Do NOT sound robotic.
+Do NOT copy the original sentences directly.
 
 Terms and Conditions:
 {text}
@@ -50,8 +53,8 @@ Terms and Conditions:
                 {
                     "role": "system",
                     "content": (
-                        "You are a professional legal document "
-                        "and Terms & Conditions summarizer."
+                        "You simplify legal documents into "
+                        "clear, modern, human-friendly English."
                     )
                 },
                 {
@@ -60,7 +63,7 @@ Terms and Conditions:
                 }
             ],
 
-            temperature=0.3,
+            temperature=0.5,
             max_tokens=400
         )
 
@@ -72,6 +75,4 @@ Terms and Conditions:
 
         print("Summarization Error:", str(e))
 
-        return (
-            "Unable to generate summary at the moment."
-        )
+        return "Unable to generate summary."
