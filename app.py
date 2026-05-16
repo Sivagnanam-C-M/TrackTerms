@@ -155,16 +155,25 @@ def get_history():
     )
 
     return jsonify(data)
+
 @app.route("/delete/<id>", methods=["DELETE"])
 def delete_history(id):
 
-    collection.delete_one({
-        "_id": ObjectId(id)
-    })
+    try:
 
-    return jsonify({
-        "message": "Deleted successfully"
-    })
+        collection.delete_one({
+            "_id": ObjectId(id)
+        })
+
+        return jsonify({
+            "message": "Deleted successfully"
+        }), 200
+
+    except Exception as e:
+
+        return jsonify({
+            "error": str(e)
+        }), 500
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
