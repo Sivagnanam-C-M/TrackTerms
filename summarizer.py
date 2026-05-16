@@ -22,10 +22,10 @@ def summarize_text(text):
         - Never use "we", "our", or "us"
         - Never speak as the company
         - Rewrite legal wording into modern human language
-        - Keep sections concise
+        - Keep sections highly concise
         - Avoid repeating the document
         - Focus only on important user-impacting details
-        - Do not exceed 180 words total
+        - Limit the total response to around 220 words so the template doesn't cut off early
         - Sound like a professional policy analyst
 
         Use this EXACT format:
@@ -36,15 +36,15 @@ def summarize_text(text):
         [1-2 sentence overview]
 
         🔏 Privacy & Data Usage
-        • [important point]
-        • [important point]
+        • [important data/privacy point]
+        • [important data/privacy point]
 
         🛑 Account Risks
-        • [important point]
-        • [important point]
+        • [important suspension/ban point]
+        • [important restriction point]
 
         ⚠️ Important Note
-        • [biggest concern or warning]
+        • [biggest single concern or warning for the user]
 
         Terms and Conditions Text:
         {text}
