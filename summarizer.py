@@ -1,7 +1,7 @@
 import requests
 import os
 
-API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
+API_URL = "https://router.huggingface.co/hf-inference/models/facebook/bart-large-cnn"
 HEADERS = {
     "Authorization": f"Bearer {os.getenv('HF_TOKEN')}"
 }
