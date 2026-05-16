@@ -1,11 +1,10 @@
 import requests
 import os
 
-API_URL = "https://router.huggingface.co/hf-inference/models/sshleifer/distilbart-cnn-12-6"
+API_URL = "https://router.huggingface.co/hf-inference/models/facebook/bart-large-cnn"
 HEADERS = {
     "Authorization": f"Bearer {os.getenv('HF_TOKEN')}"
 }
-
 
 def split_text(text, chunk_size=500):
 
