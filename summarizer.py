@@ -15,25 +15,24 @@ def summarize_text(text):
         text = text[:4000]
 
         prompt = f"""
-        Simplify these Terms and Conditions into clean,
-        modern, human-friendly points.
+        Summarize these Terms and Conditions into ONLY 4-6 short points.
 
-        Rules:
-        - Do NOT use headings
-        - Do NOT use hashtags
-        - Do NOT use markdown
-        - Do NOT use "we", "our", or "us"
-        - Do NOT sound legal or robotic
+        STRICT RULES:
+        - Never use "we", "our", or "us"
+        - Never speak as the company
+        - Never copy original sentences
         - Rewrite everything naturally
-        - Use short bullet points only
-        - Keep it concise
-        - Maximum 100 words
-        - Mention important privacy or payment concerns if present
+        - Keep every point very short
+        - No explanations
+        - No headings
+        - No markdown
+        - No extra text
+        - Maximum 80 words total
 
-        Good example:
-        • WhatsApp may share some user data with Meta products.
-        • Businesses can contact users through the platform.
-        • Accounts may be suspended for policy violations.
+        Example style:
+        • User data may be shared with Meta products.
+        • Accounts can be suspended for policy violations.
+        • Some data may be stored globally.
 
         Terms and Conditions:
         {text}
