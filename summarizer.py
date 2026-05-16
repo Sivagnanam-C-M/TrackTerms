@@ -15,29 +15,40 @@ def summarize_text(text):
         text = text[:4000]
 
         prompt = f"""
-        Summarize these Terms and Conditions into ONLY 4-6 short points.
+        Analyze these Terms and Conditions and generate a clean,
+        premium-style executive summary.
 
         STRICT RULES:
         - Never use "we", "our", or "us"
         - Never speak as the company
-        - Never copy original sentences
-        - Rewrite everything naturally
-        - Keep every point very short
-        - No explanations
-        - No headings
-        - No markdown
-        - No extra text
-        - Maximum 80 words total
+        - Rewrite legal wording into modern human language
+        - Keep sections concise
+        - Avoid repeating the document
+        - Focus only on important user-impacting details
+        - Do not exceed 180 words total
+        - Sound like a professional policy analyst
 
-        Example style:
-        • User data may be shared with Meta products.
-        • Accounts can be suspended for policy violations.
-        • Some data may be stored globally.
+        Use this EXACT format:
 
-        Terms and Conditions:
+        📱 Terms & Conditions Breakdown
+
+        💡 Quick Take:
+        [1-2 sentence overview]
+
+        🔏 Privacy & Data Usage
+        • [important point]
+        • [important point]
+
+        🛑 Account Risks
+        • [important point]
+        • [important point]
+
+        ⚠️ Important Note
+        • [biggest concern or warning]
+
+        Terms and Conditions Text:
         {text}
         """
-
         response = client.chat.completions.create(
 
             model="llama-3.1-8b-instant",
