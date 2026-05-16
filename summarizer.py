@@ -15,37 +15,30 @@ def summarize_text(text):
         text = text[:4000]
 
         prompt = f"""
-        You are a Terms and Conditions simplifier.
+        Simplify these Terms and Conditions into clean,
+        modern, human-friendly points.
 
-        Your job is to COMPLETELY REWRITE legal text into
-        simple modern English.
-
-        STRICT RULES:
-        - ONLY return bullet points
-        - DO NOT add explanations
-        - DO NOT add extra paragraphs
-        - DO NOT say "Let's break this down"
-        - DO NOT repeat headings from the document
-        - DO NOT copy legal wording
+        Rules:
+        - Do NOT use headings
+        - Do NOT use hashtags
+        - Do NOT use markdown
+        - Do NOT use "we", "our", or "us"
+        - Do NOT sound legal or robotic
         - Rewrite everything naturally
-        - Convert passive/legal voice into active human voice
-        - Sound like you are explaining to a normal app user
-        - Keep it short and clean
-        - Maximum 120 words
+        - Use short bullet points only
+        - Keep it concise
+        - Maximum 100 words
+        - Mention important privacy or payment concerns if present
 
-        OUTPUT FORMAT:
-
-        ## Quick Summary
-        • point
-        • point
-        • point
-
-        ## Important Note
-        • one important warning or privacy concern
+        Good example:
+        • WhatsApp may share some user data with Meta products.
+        • Businesses can contact users through the platform.
+        • Accounts may be suspended for policy violations.
 
         Terms and Conditions:
         {text}
         """
+
         response = client.chat.completions.create(
 
             model="llama-3.1-8b-instant",
