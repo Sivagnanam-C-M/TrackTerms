@@ -1,3 +1,9 @@
+import requests
+import os
+
+API_URL = "https://api-inference.huggingface.co/models/sshleifer/distilbart-cnn-12-6"
+HEADERS = {"Authorization": f"Bearer {os.getenv('HF_TOKEN')}"}
+
 def split_text(text, chunk_size=800):
 
     words = text.split()
